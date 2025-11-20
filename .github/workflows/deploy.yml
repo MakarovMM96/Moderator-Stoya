@@ -1,3 +1,4 @@
+# .github/workflows/deploy.yml
 name: Deploy Vite app to GitHub Pages
 
 on:
@@ -7,10 +8,15 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # 🔑 Обязательно: указать environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
       contents: read
       pages: write
       id-token: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,7 +28,7 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build
         run: npm run build
