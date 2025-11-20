@@ -1,0 +1,5 @@
+{
+  "name": "Стоя Модератор",
+  "description": "A content moderation dashboard for Yandex Disk folders. Automatically sorts files based on naming conventions or deletes them.",
+  "requestFramePermissions": []
+}
